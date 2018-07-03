@@ -22,7 +22,7 @@ class ToDoApp extends React.Component{
         key: Date.now()
       }
     );  
-     console.log( itemArray);
+     //console.log( itemArray);
      this.setState({
        items: itemArray
      });
@@ -61,9 +61,11 @@ class ToDoApp extends React.Component{
     render() {
        var todoEntries = this.props.todoListItems;
     //   this.props.toggle(this.props.item);
-      
+    console.log(todoEntries);
+
       function createTasks(item) {
      return <TodoCheck 
+              items={todoEntries}
               done={item.done}
               key= {item.key}
               value={item.text}
@@ -88,15 +90,15 @@ class ToDoApp extends React.Component{
        done(event) {
           event.preventDefault();
         //    this.props.toggle(this.props.item);
-        //console.log(this.state);
-        var array =[...this.state.items]; // make a separate copy of the array
+        //console.log(this.props.items);
+        var array =this.props.items; // make a separate copy of the array
         var index = array.indexOf(event.target.value)
         array.splice(index, 1);
         this.setState({ items: array});
        }
   
       render() {
-        console.log(this.state);
+       // console.log(this.state);
           if (this.props.done) {
               return (
                   <li>
