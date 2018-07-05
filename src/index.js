@@ -100,6 +100,7 @@ class ToDoApp extends React.Component{
       render() {
        // console.log(this.state);
           if (this.props.done) {
+              
               return (
                   <li>
                       <del>{this.props.value}</del> <a href="" onClick={this.done.bind(this)}>x</a>
